@@ -1,2 +1,115 @@
 {% extends "agency/admin_template.html" %}
+{% load widget_tweaks %}
 
+
+
+{% block content %}
+<p class="h1 fw-bold mb-5">Ship Management</p>
+<form class="card p-5" method="post" action="{% url 'agency:ships_add' %}">
+    {%csrf_token%}
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'agency:ships_add' %}">Register Ship</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Manage Ships</a>
+        </li>
+    </ul>
+    <p class="h3">Ship Details</p>
+    <div class="row">
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.name.label}}
+            </label>
+            {{form.name|attr:"class:form-control"}}
+        </div>
+
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.speed_class.label}}
+            </label>
+            {{form.speed_class|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.IMO.label}}
+            </label>
+            {{form.IMO|attr:"class:form-control"}}
+        </div>
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.vessel_type.label}}
+            </label>
+            {{form.vessel_type|attr:"class:form-select"}}
+        </div>
+
+
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.status.label}}
+            </label>
+            {{form.status|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.call_sign.label}}
+            </label>
+            {{form.call_sign|attr:"class:form-control"}}
+        </div>
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.flag.label}}
+            </label>
+            {{form.flag|attr:"class:form-select"}}
+        </div>
+
+        <div class="col col-12 col-md-6 mb-3">
+            <label class="form-label">
+                {{form.gross_tonnage.label}}
+            </label>
+            {{form.gross_tonnage|attr:"class:form-control"}}
+        </div>
+        <div class="col col-12 col-md-6 mb-3">
+            <label class="form-label">
+                {{form.summer_dwt.label}}
+            </label>
+            {{form.summer_dwt|attr:"class:form-control"}}
+        </div>
+
+        <div class="col col-12 col-md-6 mb-3">
+            <label class="form-label">
+                {{form.length_overall.label}}
+            </label>
+            {{form.length_overall|attr:"class:form-control"}}
+        </div>
+        <div class="col col-12 col-md-6 mb-3">
+            <label class="form-label">
+                {{form.breadth_extreme.label}}
+            </label>
+            {{form.breadth_extreme|attr:"class:form-control"}}
+        </div>
+
+        <div class="col col-12 col-md-6 mb-3">
+            <label class="form-label">
+                {{form.year_built.label}}
+            </label>
+            {{form.year_built|attr:"class:form-control"}}
+        </div>
+        <div class="col col-12 col-md-6 mb-3">
+            <label class="form-label">
+                {{form.home_port.label}}
+            </label>
+            {{form.home_port|attr:"class:form-select"}}
+        </div>
+    
+        <div class="col col-12 mb-3">
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-success">Register Ship</button>
+            </div>
+        </div>
+      
+       
+    </div>
+  
+</form>
+{% endblock %}

@@ -39,14 +39,18 @@ def crew_create(request):
 
 def charters_add(request):
     context = {
-        'page_name': 'Charters'
+        'page_name': 'Charters',
+        'form': CharterCreationForm()
     }
     return render(request, 'agency/charters.html', context)
 
 
-def ships(request):
+def ships_add(request):
+    if request.method == 'POST':
+        print('post')
     context = {
-        'page_name': 'Ships'
+        'page_name': 'Ships',
+        'form': ShipCreationForm()
     }
     return render(request, 'agency/ships.html', context)
 

@@ -20,4 +20,4 @@ class ShipCreationForm(ModelForm):
 class CharterCreationForm(ModelForm):
     class Meta:
         model = Charter
-        exclude = ['from_datetime', 'to_datetime']
+        exclude = ['to_datetime']

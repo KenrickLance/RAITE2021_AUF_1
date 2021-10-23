@@ -14,81 +14,185 @@
             <a class="nav-link" href="#">Manage Charters</a>
         </li>
     </ul>
-    
+    <p class="h3">Ship & Route Details</p>
     <div class="row">
-        <div class="col col-12 col-md-4 mb-3">
-            <label class="form-label">
-                {{form.last_name.label}}
-            </label>
-            {{form.last_name|attr:"class:form-control"}}
-        </div>
-        <div class="col col-12 col-md-4 mb-3">
-            <label class="form-label">
-                {{form.first_name.label}}
-            </label>
-            {{form.first_name|attr:"class:form-control"}}
-        </div>
-        <div class="col col-12 col-md-4 mb-3">
-            <label class="form-label">
-                {{form.middle_name.label}}
-            </label>
-            {{form.middle_name|attr:"class:form-control"}}
-        </div>
-    
-    
-        <div class="col col-12 col-md-6 mb-3">
-            <label class="form-label">
-                {{form.sex.label}}
-            </label>
-            {{form.sex|attr:"class:form-select"}}
-        </div>
-        <div class="col col-12 col-md-6 mb-3">
-            <label class="form-label">
-                {{form.birth_date.label}}
-            </label>
-            {{form.birth_date|attr:"class:form-control"}}
-        </div>
-    
         <div class="col col-12 mb-3">
             <label class="form-label">
-                {{form.address.label}}
+                {{form.ship.label}}
             </label>
-            {{form.address|attr:"class:form-control"}}
+            {{form.ship|attr:"class:form-select"}}
         </div>
-    
-    
-        <div class="col col-12 col-md-4 mb-3">
+
+        <div class="col col-12 col-md-6 mb-3">
             <label class="form-label">
-                {{form.email.label}}
+                Origin
             </label>
-            {{form.email|attr:"class:form-control"}}
+            {{form.from_place|attr:"class:form-select"}}
         </div>
-        <div class="col col-12 col-md-4 mb-3">
+        <div class="col col-12 col-md-6 mb-3">
             <label class="form-label">
-                {{form.phone.label}}
+                Destination
             </label>
-            {{form.phone|attr:"class:form-control"}}
+            {{form.to_place|attr:"class:form-select"}}
         </div>
-        <div class="col col-12 col-md-4 mb-3">
+
+        <div class="col col-12  mb-3">
             <label class="form-label">
-                {{form.country_of_residence.label}}
+                {{form.from_datetime.label}}
             </label>
-            {{form.country_of_residence|attr:"class:form-select"}}
+            {{form.from_datetime|attr:"class:form-control"}}
+        </div>
+
+        <div class="col col-12  mb-3">
+            <label class="form-label">
+                {{form.description.label}}
+            </label>
+            {{form.description|attr:"class:form-control"}}
+        </div>
+
+    </div>
+
+
+    <hr class="my-3">
+    <p class="h3">Designations</p>
+    <div class="row">
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.captain.label}}
+            </label>
+            {{form.captain|attr:"class:form-select"}}
         </div>
 
         <div class="col col-12 mb-3">
             <label class="form-label">
-                {{form.position.label}}
+                {{form.chief_mate.label}}
             </label>
-            {{form.position|attr:"class:form-select"}}
+            {{form.chief_mate|attr:"class:form-select"}}
+        </div>
+
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.second_mate.label}}
+            </label>
+            {{form.second_mate|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.third_mate.label}}
+            </label>
+            {{form.third_mate|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.deck_cadet.label}}
+            </label>
+            {{form.deck_cadet|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.chief_engineer.label}}
+            </label>
+            {{form.chief_engineer|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.second_engineer.label}}
+            </label>
+            {{form.second_engineer|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.third_engineer.label}}
+            </label>
+            {{form.third_engineer|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.fourth_engineer.label}}
+            </label>
+            {{form.fourth_engineer|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.engine_cadet.label}}
+            </label>
+            {{form.engine_cadet|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.electrician.label}}
+            </label>
+            {{form.electrician|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.boatswain.label}}
+            </label>
+            {{form.boatswain|attr:"class:form-select"}}
+        </div>
+
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.pump_man.label}}
+            </label>
+            {{form.pump_man|attr:"class:form-select"}}
+        </div>
+
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.able_bodied_seaman.label}}
+            </label>
+            {{form.able_bodied_seaman|attr:"class:form-select"}}
+        </div>
+
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.ordinary_seaman.label}}
+            </label>
+            {{form.ordinary_seaman|attr:"class:form-select"}}
+        </div>
+
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.fitter.label}}
+            </label>
+            {{form.fitter|attr:"class:form-select"}}
+        </div>
+
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.oiler.label}}
+            </label>
+            {{form.oiler|attr:"class:form-select"}}
+        </div>
+
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.wiper.label}}
+            </label>
+            {{form.wiper|attr:"class:form-select"}}
+        </div>
+
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.chief_cook.label}}
+            </label>
+            {{form.chief_cook|attr:"class:form-select"}}
+        </div>
+
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.steward.label}}
+            </label>
+            {{form.steward|attr:"class:form-select"}}
         </div>
 
         <div class="col col-12 mb-3">
             <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-success">Add Crew</button>
+                <button type="button" class="btn btn-success">Create Charter</button>
             </div>
         </div>
-    
+   
     
        
     </div>

@@ -17,7 +17,7 @@
             <a class="nav-link" href="#">View Past Crew</a>
         </li>
     </ul>
-    
+    <p class="h3">Personal Particulars</p>
     <div class="row">
         <div class="col col-12 col-md-4 mb-3">
             <label class="form-label">
@@ -51,7 +51,12 @@
             </label>
             {{form.birth_date|attr:"class:form-control"}}
         </div>
-    
+       
+    </div>
+    <hr class="my-3">
+    <p class="h3">Other Details</p>
+
+    <div class="row">
         <div class="col col-12 mb-3">
             <label class="form-label">
                 {{form.address.label}}
@@ -91,9 +96,6 @@
                 <button type="button" class="btn btn-success">Add Crew</button>
             </div>
         </div>
-    
-    
-       
     </div>
 </div>
 {% endblock %}

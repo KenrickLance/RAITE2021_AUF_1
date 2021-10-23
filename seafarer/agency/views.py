@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.urls import reverse
 from seafarer import settings
 from .utils import send_email, generate_confirmation_token, confirm_token
 from .forms import CrewCreationForm, ShipCreationForm, CharterCreationForm
+import json
 
 def test(request):
     form = CharterCreationForm()
@@ -24,10 +25,12 @@ def crew(request):
     return render(request, 'agency/crew.html', context)
 
 @require_http_methods(['POST'])
-def crewCreate(request):
+def crew_create(request):
     form = CrewCreationForm(request.POST)
     if form.is_valid():
-        return HttpResponseRedirect(reverse('polls:results'))
+        return JsonResponse({'status': 'success'})
+    else:
+        return JsonResponse({'status': 'failed', 'errors': form.errors})
 
 def charters(request):
     context = {

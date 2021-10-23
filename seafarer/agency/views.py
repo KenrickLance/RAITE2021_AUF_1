@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from django.http import HttpResponse, HttpResponseRedirect
+from django.views.decorators.http import require_http_methods
+from django.urls import reverse
 from seafarer import settings
 from .utils import send_email, generate_confirmation_token, confirm_token
 from .forms import CrewCreationForm, ShipCreationForm, CharterCreationForm
@@ -21,6 +22,12 @@ def crew(request):
         'form': CrewCreationForm()
     }
     return render(request, 'agency/crew.html', context)
+
+@require_http_methods(['POST'])
+def crewCreate(request):
+    form = CrewCreationForm(request.POST)
+    if form.is_valid():
+        return HttpResponseRedirect(reverse('polls:results'))
 
 def charters(request):
     context = {
@@ -45,3 +52,4 @@ def apply(request):
         'page_name': 'Apply'
     }
     return render(request, 'agency/apply.html', context)
+

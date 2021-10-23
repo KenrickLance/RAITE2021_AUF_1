@@ -1,20 +1,99 @@
 {% extends "agency/admin_template.html" %}
+{% load widget_tweaks %}
+
 
 
 {% block content %}
 <p class="h1 fw-bold mb-5">Crew Management</p>
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">Add Crew</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Manage Existing Crew</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">View Past Crew</a>
-    </li>
-  </ul>
+<div class="card p-5">
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'agency:crew_add' %}">Add Crew</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Manage Existing Crew</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">View Past Crew</a>
+        </li>
+    </ul>
+    
+    <div class="row">
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.last_name.label}}
+            </label>
+            {{form.last_name|attr:"class:form-control"}}
+        </div>
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.first_name.label}}
+            </label>
+            {{form.first_name|attr:"class:form-control"}}
+        </div>
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.middle_name.label}}
+            </label>
+            {{form.middle_name|attr:"class:form-control"}}
+        </div>
+    
+    
+        <div class="col col-12 col-md-6 mb-3">
+            <label class="form-label">
+                {{form.sex.label}}
+            </label>
+            {{form.sex|attr:"class:form-select"}}
+        </div>
+        <div class="col col-12 col-md-6 mb-3">
+            <label class="form-label">
+                {{form.birth_date.label}}
+            </label>
+            {{form.birth_date|attr:"class:form-control"}}
+        </div>
+    
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.address.label}}
+            </label>
+            {{form.address|attr:"class:form-control"}}
+        </div>
+    
+    
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.email.label}}
+            </label>
+            {{form.email|attr:"class:form-control"}}
+        </div>
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.phone.label}}
+            </label>
+            {{form.phone|attr:"class:form-control"}}
+        </div>
+        <div class="col col-12 col-md-4 mb-3">
+            <label class="form-label">
+                {{form.country_of_residence.label}}
+            </label>
+            {{form.country_of_residence|attr:"class:form-select"}}
+        </div>
 
+        <div class="col col-12 mb-3">
+            <label class="form-label">
+                {{form.position.label}}
+            </label>
+            {{form.position|attr:"class:form-select"}}
+        </div>
 
-  {{form}}
+        <div class="col col-12 mb-3">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-success">Add Crew</button>
+            </div>
+        </div>
+    
+    
+       
+    </div>
+</div>
 {% endblock %}

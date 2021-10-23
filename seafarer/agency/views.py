@@ -6,6 +6,8 @@ from seafarer import settings
 from .utils import send_email, generate_confirmation_token, confirm_token
 from .forms import CrewCreationForm, ShipCreationForm, CharterCreationForm
 
+
+
 def test(request):
     form = CharterCreationForm()
     return render(request, 'agency/test.html', {'form':form})
@@ -16,12 +18,14 @@ def dashboard(request):
     }
     return render(request, 'agency/dashboard.html', context)
 
-def crew(request):
+
+def crew_add(request):
     context = {
         'page_name': 'Crew',
         'form': CrewCreationForm()
     }
     return render(request, 'agency/crew.html', context)
+
 
 @require_http_methods(['POST'])
 def crewCreate(request):
@@ -29,11 +33,13 @@ def crewCreate(request):
     if form.is_valid():
         return HttpResponseRedirect(reverse('polls:results'))
 
-def charters(request):
+
+def charters_add(request):
     context = {
         'page_name': 'Charters'
     }
     return render(request, 'agency/charters.html', context)
+
 
 def ships(request):
     context = {
@@ -46,6 +52,7 @@ def analytics(request):
         'page_name': 'Analytics'
     }
     return render(request, 'agency/analytics.html', context)
+
 
 def apply(request):
     context = {

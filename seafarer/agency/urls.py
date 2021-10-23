@@ -5,8 +5,8 @@ from . import views
 app_name = 'agency'
 urlpatterns = [
     path('dashboard', views.dashboard, name='dashboard'),
-    path('crew', views.crew, name='crew'),
-    path('charters', views.charters, name='charters'),
+    path('crew/add', views.crew_add, name='crew_add'),
+    path('charters/add', views.charters_add, name='charters_add'),
     path('ships', views.ships, name='ships'),
     path('analytics', views.analytics, name='analytics'),
     path('apply', views.apply, name='apply'),

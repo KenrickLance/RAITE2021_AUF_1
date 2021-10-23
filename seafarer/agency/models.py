@@ -40,7 +40,7 @@ class Crew(models.Model):
 	email = models.EmailField(max_length=254)
 	sex = models.CharField(max_length=254, choices=sex_choices)
 	birth_date = models.DateField()
-	address = models.TextField()
+	address = models.CharField(max_length=2540)
 	country_of_residence = models.CharField(max_length=254, choices=country_choices)
 	position = models.CharField(max_length=254, choices=position_choices)
 	employment_date = models.DateField(auto_now_add=True)

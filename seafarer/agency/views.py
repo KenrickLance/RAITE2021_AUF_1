@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.urls import reverse
@@ -24,47 +24,54 @@ def dashboard(request):
 def crew_add(request):
     context = {
         'page_name': 'Crew',
-        'form': CrewCreationForm()
     }
-    return render(request, 'agency/crew.html', context)
-
-
-@require_http_methods(['GET', 'POST'])
-def crew_create(request):
     if request.method == 'POST':
         form = CrewCreationForm(request.POST)
         if form.is_valid():
             new_crew = form.save()
-            return JsonResponse({'status': 'success'})
-        else:
-            return JsonResponse({'status': 'failed', 'errors': form.errors})
+            return HttpResponseRedirect(reverse('agency:crew_add'))
     else:
         form = CrewCreationForm()
-        return form
-@require_http_methods(['GET', 'PUT'])
-def crew_edit(request):
-    form = CrewCreationForm(request.POST)
-    if form.is_valid():
-        new_crew = form.save()
-        return JsonResponse({'status': 'success'})
-    else:
-        return JsonResponse({'status': 'failed', 'errors': form.errors})
+    context['form'] = form
+    return render(request, 'agency/crew_add.html', context)
 
-@require_http_methods(['PUT'])
-def crew_edit(request):
-    form = CrewCreationForm(request.POST)
-    if form.is_valid():
-        new_crew = form.save()
-        return JsonResponse({'status': 'success'})
-    else:
-        return JsonResponse({'status': 'failed', 'errors': form.errors})
-
-
-def charters_add(request):
+def crew_manage(request):
     context = {
-        'page_name': 'Charters'
+        'page_name': 'Crew',
     }
-    return render(request, 'agency/charters.html', context)
+    crews = Crew.objects.all()
+    context['crews'] = crews
+    return render(request, 'agency/crew_manage.html', context)
+
+def crew_manage_one(request, pk):
+    context = {
+        'page_name': 'Crew',
+    }
+    crew = get_object_or_404(Crew, pk=pk)
+    form = CrewCreationForm(instance=crew)
+    context['form'] = form
+    return render(request, 'agency/crew_manage_one.html', context)
+
+@require_http_methods(['POST'])
+def crew_edit(request, pk):
+    context = {
+        'page_name': 'Crew',
+    }
+    form = CrewCreationForm(request.POST)
+    if form.is_valid():
+        new_crew = form.save()
+        return HttpResponseRedirect(reverse('agency:crew_manage'))
+    else:
+        context['form'] = form
+        return render(request, 'agency/crew_manage.html', context)
+
+def charters_delete(request, pk):
+    context = {
+        'page_name': 'Crew',
+    }
+    crew = get_object_or_404(Crew, pk=pk)
+    context['crew'] = crew
+    return render(request, 'agency/crew_delete.html', context)
 
 @require_http_methods(['POST'])
 def charter_create(request):

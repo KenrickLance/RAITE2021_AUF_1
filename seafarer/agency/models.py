@@ -1,7 +1,10 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils import timezone
+import geopy.distance
 
+from geopy.exc import GeocoderTimedOut
+from geopy.geocoders import Nominatim
 import datetime
 
 class Crew(models.Model):
@@ -125,8 +128,29 @@ class Charter(models.Model):
 	to_datetime = models.DateTimeField()
 
 	
+	def distance(self):
+		def findGeocode(country):
+			try:
+				geolocator = Nominatim(user_agent="your_app_name")
+				return geolocator.geocode(country)
+			except GeocoderTimedOut:
+				return findGeocode(country)
+		location1 = findGeocode(self.from_place)
+		location2 = findGeocode(self.to_place)
+		coords1 = (location1.latitude, location2.longitude)
+		coords2 = (location2.latitude, location2.longitude)
+		dist = geopy.distance.vincenty(coords1, coords2).km
+		return dist
 
+	def eta(self):
+		distance = self.distance()
+		speed_class = {'Normal (23 Knots)': 23, 'Slow Streaming (19 Knots)': 19,
+			 'Extra Slow Streaming (16.5 Knots)': 16.5, 'Minimal Costs (13.5 Knots)': 13.5}
+		speed = speed_class[self.ship.speed_class]
+		speed *= 1.852
+		hours = distance / speed
+		return hours
 
-	#eta
-	#income
-	#expenses
+	def income(self):
+		return self.distance() * 10
+

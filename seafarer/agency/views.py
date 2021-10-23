@@ -3,6 +3,11 @@ from django.http import HttpResponse
 
 from seafarer import settings
 from .utils import send_email, generate_confirmation_token, confirm_token
+from .forms import CrewCreationForm, ShipCreationForm, CharterCreationForm
+
+def test(request):
+    form = CharterCreationForm()
+    return render(request, 'agency/test.html', {'form':form})
 
 def dashboard(request):
     context = {

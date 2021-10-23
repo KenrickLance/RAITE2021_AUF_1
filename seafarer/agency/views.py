@@ -8,6 +8,8 @@ from .models import Crew, Ship, Charter
 from .forms import CrewCreationForm, ShipCreationForm, CharterCreationForm
 import json
 
+
+
 def test(request):
     form = CharterCreationForm()
     return render(request, 'agency/test.html', {'form':form})
@@ -18,12 +20,14 @@ def dashboard(request):
     }
     return render(request, 'agency/dashboard.html', context)
 
-def crew(request):
+
+def crew_add(request):
     context = {
         'page_name': 'Crew',
         'form': CrewCreationForm()
     }
     return render(request, 'agency/crew.html', context)
+
 
 @require_http_methods(['GET', 'POST'])
 def crew_create(request):
@@ -55,7 +59,8 @@ def crew_edit(request):
     else:
         return JsonResponse({'status': 'failed', 'errors': form.errors})
 
-def charters(request):
+
+def charters_add(request):
     context = {
         'page_name': 'Charters'
     }
@@ -90,6 +95,7 @@ def analytics(request):
         'page_name': 'Analytics'
     }
     return render(request, 'agency/analytics.html', context)
+
 
 def apply(request):
     context = {

@@ -67,7 +67,9 @@ def crew_edit(request, pk):
 
 def charters_delete(request, pk):
     context = {
-        'page_name': 'Crew',
+
+        'page_name': 'Charters',
+        'form': CharterCreationForm()
     }
     crew = get_object_or_404(Crew, pk=pk)
     context['crew'] = crew
@@ -82,9 +84,12 @@ def charter_create(request):
     else:
         return JsonResponse({'status': 'failed', 'errors': form.errors})
 
-def ships(request):
+def ships_add(request):
+    if request.method == 'POST':
+        print('post')
     context = {
-        'page_name': 'Ships'
+        'page_name': 'Ships',
+        'form': ShipCreationForm()
     }
     return render(request, 'agency/ships.html', context)
 

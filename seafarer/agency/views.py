@@ -17,7 +17,8 @@ def dashboard(request):
 
 def crew(request):
     context = {
-        'page_name': 'Crew'
+        'page_name': 'Crew',
+        'form': CrewCreationForm()
     }
     return render(request, 'agency/crew.html', context)
 

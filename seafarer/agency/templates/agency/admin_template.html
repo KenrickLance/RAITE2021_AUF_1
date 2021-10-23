@@ -191,10 +191,11 @@
                 width: 100%;
             }
 
-            .active {
+            .active-menu {
                 background-color: transparent !important;
                 background: rgb(15,74,115) !important;
                 background: linear-gradient(145deg, rgba(15,74,115,1) 29%, rgba(15,145,165,1) 100%) !important;
+                color: white !important;
             }
 
             #qr_focus_modal canvas {
@@ -260,11 +261,12 @@
                     display: none !important;
                 }
 
-                .active {
+                .active-menu {
                     border-radius: 0 !important;
                     background: none !important;
                     background: rgb(15,74,115);
                     background: linear-gradient(145deg, rgba(15,74,115,1) 29%, rgba(15,145,165,1) 100%);
+                    color: white !important;
                 }
 
                 #regular-sidebar a:hover {
@@ -323,7 +325,7 @@
                     display: none !important;
                 }
 
-                .active {
+                .active-menu {
                     border-radius: 0 !important;
                     background: none !important;
                     color: white !important;
@@ -344,7 +346,7 @@
                 <hr class="to-hide my-4">
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item mb-3" data-bs-toggle="modal" data-bs-target="#menu_modal">
-                        <a href='{% url "agency:dashboard" %}' class="nav-link link-dark {% if page_name == 'Dashboard' %}active{%endif%}">
+                        <a href='{% url "agency:dashboard" %}' class="nav-link link-dark {% if page_name == 'Dashboard' %}active-menu{%endif%}">
                             <i class="bi bi-columns me-2"></i>
                             <span class='nav-inner-text d-inline-block'> Dashboard</span>
                         </a>
@@ -352,28 +354,28 @@
 
 
                     <li class="nav-item mb-3" data-bs-toggle="modal" data-bs-target="#menu_modal">
-                        <a href='{% url "agency:crew" %}' class="nav-link link-dark {% if page_name == 'Crew' %}active{%endif%}">
+                        <a href='{% url "agency:crew" %}' class="nav-link link-dark {% if page_name == 'Crew' %}active-menu{%endif%}">
                             <i class="bi bi-people-fill me-2"></i>
                             <span class='nav-inner-text d-inline-block'> Crew</span>
                         </a>
                     </li>
 
                     <li class="nav-item mb-3" data-bs-toggle="modal" data-bs-target="#menu_modal">
-                        <a href='{% url "agency:charters" %}' class="nav-link link-dark {% if page_name == 'Charters' %}active{%endif%}">
+                        <a href='{% url "agency:charters" %}' class="nav-link link-dark {% if page_name == 'Charters' %}active-menu{%endif%}">
                             <i class="bi bi-geo-alt-fill me-2"></i>
                             <span class='nav-inner-text d-inline-block'> Charters</span>
                         </a>
                     </li>
 
                     <li class="nav-item mb-3" data-bs-toggle="modal" data-bs-target="#menu_modal">
-                        <a href='{% url "agency:ships" %}' class="nav-link link-dark {% if page_name == 'Ships' %}active{%endif%}">
+                        <a href='{% url "agency:ships" %}' class="nav-link link-dark {% if page_name == 'Ships' %}active-menu{%endif%}">
                             <i class="bi bi-droplet-fill me-2"></i>
                             <span class='nav-inner-text d-inline-block'> Ships</span>
                         </a>
                     </li>
 
                     <li class="nav-item mb-3" data-bs-toggle="modal" data-bs-target="#menu_modal">
-                        <a href='{% url "agency:analytics" %}' class="nav-link link-dark {% if page_name == 'Analytics' %}active{%endif%}">
+                        <a href='{% url "agency:analytics" %}' class="nav-link link-dark {% if page_name == 'Analytics' %}active-menu{%endif%}">
                             <i class="bi bi-bar-chart-line-fill me-2"></i>
                             <span class='nav-inner-text d-inline-block'> Analytics</span>
                         </a>

@@ -1,2 +1,20 @@
 {% extends "agency/admin_template.html" %}
 
+
+{% block content %}
+<p class="h1 fw-bold mb-5">Crew Management</p>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Add Crew</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Manage Existing Crew</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">View Past Crew</a>
+    </li>
+  </ul>
+
+
+  {{form}}
+{% endblock %}
